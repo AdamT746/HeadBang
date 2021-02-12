@@ -18,4 +18,13 @@ public class TargetMove : MonoBehaviour
     {
         Target.GetComponent<Rigidbody>().AddForce(transform.forward * Speed);
     }
+
+    private void OnTriggerEnter(Collider collision)
+    {
+        if(collision.gameObject.tag == "Wall")
+        {
+            Destroy(Target);
+
+        }
+    }
 }
