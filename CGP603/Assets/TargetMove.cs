@@ -6,7 +6,7 @@ public class TargetMove : MonoBehaviour
 {
 
     public GameObject Target;
-    public int Speed;
+    public float Speed;
     // Start is called before the first frame update
     void Start()
     {
@@ -24,7 +24,6 @@ public class TargetMove : MonoBehaviour
         if(collision.gameObject.tag == "Wall")
         {
             Destroy(Target);
-
         }
     }
 }
