@@ -5,6 +5,7 @@ using UnityEngine;
 public class Shooting : MonoBehaviour
 {
     private LineRenderer m_line;
+    public float m_destroyTime;
 
     [Header("Needed Variables")]
     public Transform m_barrel;
@@ -23,9 +24,13 @@ public class Shooting : MonoBehaviour
         {
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit;
-            if (Physics.Raycast(ray,out hit))
+
+            if (Physics.Raycast(ray, out hit))
             {
+                StartCoroutine(DestroyLine());   
                 SetupLine(hit);
+
+                Destroy(hit.collider.gameObject);
             }
         }
     }
@@ -40,6 +45,14 @@ public class Shooting : MonoBehaviour
         m_line.endWidth = 0.05f;
         m_line.useWorldSpace = true;
         m_line.material = m_gunMat;
-       
+    }
+
+    IEnumerator DestroyLine()
+    {
+        m_line.enabled = !m_line.enabled;
+
+        yield return new WaitForSeconds(0.2f);
+
+        m_line.enabled = !m_line.enabled;
     }
 }
