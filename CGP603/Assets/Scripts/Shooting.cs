@@ -1,12 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Shooting : MonoBehaviour
 {
     private LineRenderer m_line;
     public float m_destroyTime;
     public int m_score;
+    public Text m_comboText;
     public int m_combo;
 
     [Header("Needed Variables")]
@@ -29,22 +31,23 @@ public class Shooting : MonoBehaviour
 
             if (Physics.Raycast(ray, out hit))
             {
-                //Add score and combo    --//Assuming yellow is perfect and green is great//--
+                //Add score and combo, destroy target  --//Assuming yellow is perfect and green is great//--
                 if (hit.collider.gameObject.name == "Target(Clone)")
                 {
                     Color targetMaterial = hit.collider.GetComponent<Renderer>().material.color;
 
                     ScoreAndCombo(targetMaterial);
+
+                    Destroy(hit.collider.gameObject);
                 }
                 else
                 {
                     m_combo = 0;
+                    m_comboText.text = "Combo: " + m_combo;
                 }
 
                 StartCoroutine(DestroyLine());   
                 SetupLine(hit);
-
-                Destroy(hit.collider.gameObject);
             }
         }
     }
@@ -66,7 +69,7 @@ public class Shooting : MonoBehaviour
     {
         m_line.enabled = !m_line.enabled;
 
-        yield return new WaitForSeconds(0.2f);
+        yield return new WaitForSeconds(m_destroyTime);
 
         m_line.enabled = !m_line.enabled;
     }
@@ -74,6 +77,7 @@ public class Shooting : MonoBehaviour
     private void ScoreAndCombo(Color target)
     {
         m_combo++;
+        m_comboText.text = "Combo: " + m_combo;
 
         if (target == Color.yellow)
             m_score += 50;
