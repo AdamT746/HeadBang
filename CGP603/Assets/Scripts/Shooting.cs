@@ -6,6 +6,8 @@ public class Shooting : MonoBehaviour
 {
     private LineRenderer m_line;
     public float m_destroyTime;
+    public int m_score;
+    public int m_combo;
 
     [Header("Needed Variables")]
     public Transform m_barrel;
@@ -27,6 +29,18 @@ public class Shooting : MonoBehaviour
 
             if (Physics.Raycast(ray, out hit))
             {
+                //Add score and combo    --//Assuming yellow is perfect and green is great//--
+                if (hit.collider.gameObject.name == "Target(Clone)")
+                {
+                    Color targetMaterial = hit.collider.GetComponent<Renderer>().material.color;
+
+                    ScoreAndCombo(targetMaterial);
+                }
+                else
+                {
+                    m_combo = 0;
+                }
+
                 StartCoroutine(DestroyLine());   
                 SetupLine(hit);
 
@@ -34,6 +48,7 @@ public class Shooting : MonoBehaviour
             }
         }
     }
+
     void SetupLine(RaycastHit hito)
     {
         m_line.sortingLayerName = "OnTop";
@@ -54,5 +69,15 @@ public class Shooting : MonoBehaviour
         yield return new WaitForSeconds(0.2f);
 
         m_line.enabled = !m_line.enabled;
+    }
+
+    private void ScoreAndCombo(Color target)
+    {
+        m_combo++;
+
+        if (target == Color.yellow)
+            m_score += 50;
+        else if (target == Color.green)
+            m_score += 25;
     }
 }
