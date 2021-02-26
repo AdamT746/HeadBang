@@ -43,7 +43,7 @@ public class Shooting : MonoBehaviour
                 else
                 {
                     m_combo = 0;
-                    m_comboText.text = "Combo: " + m_combo;
+                    m_comboText.text = "" + m_combo;
                 }
 
                 StartCoroutine(DestroyLine());   
@@ -77,7 +77,7 @@ public class Shooting : MonoBehaviour
     private void ScoreAndCombo(Color target)
     {
         m_combo++;
-        m_comboText.text = "Combo: " + m_combo;
+        m_comboText.text = "" + m_combo;
 
         if (target == Color.yellow)
             m_score += 50;
