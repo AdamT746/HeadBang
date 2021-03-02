@@ -1,0 +1,47 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Shader Graphs_PlatFormShader
+  m_Shader: {fileID: -6465566751694194690, guid: ee6969dddb658a543a20fcfc55530156,
+    type: 3}
+  m_ShaderKeywords: 
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _SampleTexture2D_5D1280A0_Texture_1:
+        m_Texture: {fileID: 10912, guid: 0000000000000000f000000000000000, type: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _SampleTexture2D_E13F4D2_Texture_1:
+        m_Texture: {fileID: 10300, guid: 0000000000000000f000000000000000, type: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Triplanar_3B4A9040_Texture_1:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Floats:
+    - Vector1_5260362F: 0.01
+    - Vector1_62A75F70: 0.05
+    - Vector1_6BAFED76: -1
+    - Vector1_7C3987F6: -0.06
+    - Vector1_86F48CC: 23.32
+    - Vector1_C5CD844B: 150.47
+    m_Colors:
+    - Color_80CC129B: {r: 440.52353, g: 87.643425, b: 0, a: 1}
+    - Vector2_524F3B97: {r: 0, g: 0, b: 0, a: 0}
+    - Vector2_66816FA7: {r: 12.6, g: 28.6, b: 0, a: 0}
+    - Vector2_AE0680B5: {r: 0, g: 0, b: 0, a: 0}
+    - Vector3_957F6E29: {r: -1, g: 0, b: 0, a: 0}
