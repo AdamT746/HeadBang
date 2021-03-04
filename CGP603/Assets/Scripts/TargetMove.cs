@@ -1,14 +1,17 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.VFX;
 
 public class TargetMove : MonoBehaviour
 {
     public GameObject Target;
     public GameObject Player;
+    public GameObject notesVFX;
     private int YellowRange;
     private int GreenRange;
     public float Speed;
+    bool perfectHit;
 
     // Start is called before the first frame update
     void Start()
@@ -31,14 +34,25 @@ public class TargetMove : MonoBehaviour
         if (dist <= YellowRange && dist > GreenRange)
         {
             Target.GetComponent<Renderer>().material.color = Color.yellow;
+             perfectHit = false;
         }
         else if (dist <= GreenRange)
         {
             Target.GetComponent<Renderer>().material.color = Color.green;
+            perfectHit = true;
         }
         else if (dist >= YellowRange)
         {
             Target.GetComponent<Renderer>().material.color = Color.red;
+            perfectHit = false;
+        }
+    }
+    void OnDestroy()
+    {
+        if (perfectHit)
+        {
+            Instantiate(notesVFX, transform.position, Quaternion.identity);
+            Debug.LogWarning("<color=red>BOOM!!!!!!!!!!!!!!! </color>");
         }
     }
 
