@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class Shooting : MonoBehaviour
 {
     private LineRenderer m_line;
+    public Camera m_cam;
     public float m_destroyTime;
     public int m_score;
     public Text m_comboText;
@@ -59,8 +60,8 @@ public class Shooting : MonoBehaviour
         m_line.positionCount=2;
         m_line.SetPosition(0, m_barrel.position);
         m_line.SetPosition(1, hito.point);
-        m_line.startWidth=0.05f;
-        m_line.endWidth = 0.05f;
+        m_line.startWidth=0.01f;
+        m_line.endWidth = 0.025f;
         m_line.useWorldSpace = true;
         m_line.material = m_gunMat;
     }
