@@ -6,7 +6,6 @@ using UnityEngine.UI;
 public class Shooting : MonoBehaviour
 {
     private LineRenderer m_line;
-    public Camera m_cam;
     public float m_destroyTime;
     public int m_score;
     public Text m_comboText;
