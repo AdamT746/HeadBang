@@ -7,8 +7,8 @@ public class Shooting : MonoBehaviour
 {
     private LineRenderer m_line;
     public float m_destroyTime;
+    public Text m_comboText, m_scoreText;
     public int m_score;
-    public Text m_comboText;
     public int m_combo;
 
     [Header("Needed Variables")]
@@ -37,6 +37,7 @@ public class Shooting : MonoBehaviour
                     Color targetMaterial = hit.collider.GetComponent<Renderer>().material.color;
 
                     ScoreAndCombo(targetMaterial);
+                    m_scoreText.text = "" + m_score;
 
                     Destroy(hit.collider.gameObject);
                 }
@@ -80,8 +81,8 @@ public class Shooting : MonoBehaviour
         m_comboText.text = "" + m_combo;
 
         if (target == Color.yellow)
-            m_score += 50;
+            m_score += 1;
         else if (target == Color.green)
-            m_score += 25;
+            m_score += 3;
     }
 }

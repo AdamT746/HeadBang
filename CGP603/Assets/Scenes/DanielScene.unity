@@ -1704,6 +1704,11 @@ PrefabInstance:
       propertyPath: m_comboText
       value: 
       objectReference: {fileID: 1706705016}
+    - target: {fileID: 3493532687588158973, guid: be5e761e0d137ec47b9183882b9d6e70,
+        type: 3}
+      propertyPath: m_scoreText
+      value: 
+      objectReference: {fileID: 727740497}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: be5e761e0d137ec47b9183882b9d6e70, type: 3}
 --- !u!4 &895564215 stripped
