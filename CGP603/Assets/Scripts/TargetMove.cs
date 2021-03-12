@@ -16,8 +16,8 @@ public class TargetMove : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        YellowRange = 5;
-        GreenRange = 2;
+        YellowRange = 4;
+        GreenRange = 1;
 
         Target.GetComponent<Renderer>().material.color = Color.red;
     }
