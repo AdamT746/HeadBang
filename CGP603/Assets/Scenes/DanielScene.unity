@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -415,7 +415,8 @@ AudioSource:
   m_GameObject: {fileID: 162913880}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: -4606281863860776120, guid: f9a2076949f7afb40b50ed4dac93f71e,
+    type: 2}
   m_audioClip: {fileID: 8300000, guid: 93473a2693112434a9e988dd1391464b, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 0.1
