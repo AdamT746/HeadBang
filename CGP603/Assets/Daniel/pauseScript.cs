@@ -8,7 +8,11 @@ public class pauseScript : MonoBehaviour
     Animator animator;
     public AudioSource audioSource;
     public GameObject PauseMenu;
+    public RotateGun rotateScript;
+    public Shooting shootingScript;
+    public LineRenderer lazer;
     public Text countdown;
+    public bool paused;
     // Start is called before the first frame update
     void Start()
     {
@@ -20,6 +24,9 @@ public class pauseScript : MonoBehaviour
         Time.timeScale = 0;
         audioSource.Pause();
         PauseMenu.SetActive(true);
+        rotateScript.enabled = false;
+        shootingScript.enabled = false;
+        lazer.enabled = false;
     }
     public void Resume()
     {
@@ -42,6 +49,8 @@ public class pauseScript : MonoBehaviour
 
         countdown.text = null;
         Time.timeScale = 1;
+        rotateScript.enabled = true;
+        shootingScript.enabled = true;
         audioSource.Play();
     }
 }
