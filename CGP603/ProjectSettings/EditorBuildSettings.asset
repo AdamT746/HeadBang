@@ -8,10 +8,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/StartMenu.unity
     guid: b437e2d18b8d31043b1b2255f974e113
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Test Scenes/DanielScene.unity
     guid: 371235c9e3471fc469b25deeb3f4f9a6
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/Game.unity
     guid: e8294480e6cd6cf44a36c097b2e2b4ff
   - enabled: 1

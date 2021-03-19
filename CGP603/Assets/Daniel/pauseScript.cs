@@ -5,7 +5,8 @@ using UnityEngine;
 public class pauseScript : MonoBehaviour
 {
     Animator animator;
-    public AudioSource audioSource; 
+    public AudioSource audioSource;
+    public GameObject PauseMenu;
     // Start is called before the first frame update
     void Start()
     {
@@ -16,11 +17,13 @@ public class pauseScript : MonoBehaviour
         animator.SetTrigger("Toggle");
         Time.timeScale = 0;
         audioSource.Pause();
+        PauseMenu.SetActive(true);
     }
     public void Resume()
     {
         animator.SetTrigger("Toggle");
         StartCoroutine(StartResume());
+        PauseMenu.SetActive(false);
     }
     IEnumerator StartResume()
     {    

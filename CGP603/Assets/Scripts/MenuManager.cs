@@ -9,7 +9,7 @@ public class MenuManager : MonoBehaviour
     
 	// Start is called before the first frame update
 	public Button StartButton;
-
+	public Button MenuButton;
 	public Button QuitButton;
 
 	void Start()
@@ -20,16 +20,22 @@ public class MenuManager : MonoBehaviour
 		Button Quit = QuitButton.GetComponent<Button>();
 		Quit.onClick.AddListener(QuitGame);
 
-
+		Button Menu = MenuButton.GetComponent<Button>();
+		Menu.onClick.AddListener(QuitToMenu);
 
 	}
 
 	void StartGame()
 	{
-		SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+		SceneManager.LoadScene("Game");
 	}
 	void QuitGame()
     {
 		Application.Quit(); 
     }
+	void QuitToMenu()
+    {
+		SceneManager.LoadScene("StartMenu");
+		Debug.Log("Pressed");
+	}
 }
