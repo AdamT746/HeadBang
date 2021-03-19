@@ -35,24 +35,27 @@ public class Shooting : MonoBehaviour
 
             if (Physics.Raycast(ray, out hit))
             {
-                //Add score and combo, destroy target  --//Assuming yellow is perfect and green is great//--
-                if (hit.collider.gameObject.name == "Target(Clone)")
+                if(hit.collider.gameObject.name != "Pause Collider")
                 {
-                    Color targetMaterial = hit.collider.GetComponent<Renderer>().material.color;
+                    //Add score and combo, destroy target  --//Assuming yellow is perfect and green is great//--
+                    if (hit.collider.gameObject.name == "Target(Clone)")
+                    {
+                        Color targetMaterial = hit.collider.GetComponent<Renderer>().material.color;
 
-                    ScoreAndCombo(targetMaterial);
-                    m_scoreText.text = "" + m_score;
+                        ScoreAndCombo(targetMaterial);
+                        m_scoreText.text = "" + m_score;
 
-                    Destroy(hit.collider.gameObject);
+                        Destroy(hit.collider.gameObject);
+                    }
+                    else
+                    {
+                        m_combo = 0;
+                        m_comboText.text = "" + m_combo;
+                    }
+
+                    StartCoroutine(DestroyLine());
+                    SetupLine(hit);
                 }
-                else
-                {
-                    m_combo = 0;
-                    m_comboText.text = "" + m_combo;
-                }
-
-                StartCoroutine(DestroyLine());   
-                SetupLine(hit);
             }
         }
         if (m_combo > HCombo)
