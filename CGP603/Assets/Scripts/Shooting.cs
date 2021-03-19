@@ -8,8 +8,12 @@ public class Shooting : MonoBehaviour
     private LineRenderer m_line;
     public float m_destroyTime;
     public Text m_comboText, m_scoreText;
-    public int m_score;
+    static public int m_score;
     public int m_combo;
+
+    static public int HCombo;
+
+    
 
     [Header("Needed Variables")]
     public Transform m_barrel;
@@ -51,6 +55,11 @@ public class Shooting : MonoBehaviour
                 SetupLine(hit);
             }
         }
+        if (m_combo > HCombo)
+        {
+            HCombo = m_combo;
+        }
+
     }
 
     void SetupLine(RaycastHit hito)

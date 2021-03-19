@@ -38,4 +38,8 @@ public class MenuManager : MonoBehaviour
 		SceneManager.LoadScene("StartMenu");
 		Debug.Log("Pressed");
 	}
+	public void Next()
+    {
+		SceneManager.LoadScene("LevelEnd");
+    }
 }
