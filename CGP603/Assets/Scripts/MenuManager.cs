@@ -10,15 +10,26 @@ public class MenuManager : MonoBehaviour
 	// Start is called before the first frame update
 	public Button StartButton;
 
+	public Button QuitButton;
+
 	void Start()
 	{
-		Button btn = StartButton.GetComponent<Button>();
-		btn.onClick.AddListener(TaskOnClick);
+		Button Start = StartButton.GetComponent<Button>();
+		Start.onClick.AddListener(StartGame);
+
+		Button Quit = QuitButton.GetComponent<Button>();
+		Quit.onClick.AddListener(QuitGame);
+
+
+
 	}
 
-	void TaskOnClick()
+	void StartGame()
 	{
-		Debug.Log("You have clicked the button!");
 		SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
 	}
+	void QuitGame()
+    {
+		Application.Quit(); 
+    }
 }
