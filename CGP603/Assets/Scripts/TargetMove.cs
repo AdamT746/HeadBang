@@ -29,7 +29,7 @@ public class TargetMove : MonoBehaviour
 
         float dist = Mathf.Abs(Target.transform.position.z - Player.transform.position.z);
 
-        Debug.Log("Distance = " + dist);
+        //Debug.Log("Distance = " + dist);
 
         if (dist <= YellowRange && dist > GreenRange)
         {

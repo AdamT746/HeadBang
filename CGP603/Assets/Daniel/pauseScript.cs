@@ -12,7 +12,7 @@ public class pauseScript : MonoBehaviour
     public Shooting shootingScript;
     public LineRenderer lazer;
     public Text countdown;
-    public bool paused;
+    public static bool paused;
     // Start is called before the first frame update
     void Start()
     {
@@ -20,6 +20,7 @@ public class pauseScript : MonoBehaviour
     }
     public void Pause()
     {
+        paused = true;
         animator.SetTrigger("Toggle");
         Time.timeScale = 0;
         audioSource.Pause();
@@ -52,5 +53,6 @@ public class pauseScript : MonoBehaviour
         rotateScript.enabled = true;
         shootingScript.enabled = true;
         audioSource.Play();
+        paused = false;
     }
 }
