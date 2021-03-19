@@ -14,7 +14,7 @@ public class Highscores : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        highCombo = 0;
     }
 
     // Update is called once per frame

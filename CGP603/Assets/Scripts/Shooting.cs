@@ -23,6 +23,9 @@ public class Shooting : MonoBehaviour
     void Start()
     {
         m_line = GetComponent<LineRenderer>();
+
+        m_score = 0;
+        HCombo = 0;
     }
 
     // Update is called once per frame

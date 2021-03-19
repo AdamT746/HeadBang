@@ -3694,6 +3694,7 @@ MonoBehaviour:
   targetPrefab: {fileID: 5897782044053951487, guid: bf179850dbbeb2e488b98afea4550aff,
     type: 3}
   gap: 4
+  SongLength: 10
 --- !u!1001 &1694918525
 PrefabInstance:
   m_ObjectHideFlags: 0

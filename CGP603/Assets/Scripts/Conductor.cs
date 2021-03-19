@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Conductor : MonoBehaviour
 {
@@ -27,6 +28,9 @@ public class Conductor : MonoBehaviour
     public float gap = 4;
     private float timer;
 
+    public float SongLength;
+    
+
     void Start()
     {
         //Music
@@ -43,6 +47,8 @@ public class Conductor : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        
+
         if (pauseScript.paused == false)
         {
             //Song tracking
@@ -56,6 +62,10 @@ public class Conductor : MonoBehaviour
                 timer += gap;
                 Debug.Log(songPosInBeats);
             }
+        }
+        if (songPosition >= SongLength)
+        {
+            SceneManager.LoadScene("LevelEnd");
         }
     }
 }
