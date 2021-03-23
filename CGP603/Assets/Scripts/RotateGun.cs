@@ -4,11 +4,16 @@ using UnityEngine;
 
 public class RotateGun : MonoBehaviour
 {
+    public GameObject GunBone;
+    public Vector3 Lookat;
+
+
     // Update is called once per frame
     void Update()
     {
         var ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 
-        gameObject.transform.rotation = Quaternion.LookRotation(ray.direction, Vector3.up);
+        GunBone.transform.rotation = Quaternion.LookRotation(ray.direction, Lookat);
+
     }
 }

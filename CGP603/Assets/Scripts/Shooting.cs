@@ -13,6 +13,7 @@ public class Shooting : MonoBehaviour
 
     static public int HCombo;
 
+    public bool using_anim;
     
 
     [Header("Needed Variables")]
@@ -57,6 +58,8 @@ public class Shooting : MonoBehaviour
 
                     StartCoroutine(DestroyLine());
                     SetupLine(hit);
+                    if(using_anim)
+                    GetComponent<Animator>().SetTrigger("Shoot");
                 }
             }
         }
@@ -74,8 +77,8 @@ public class Shooting : MonoBehaviour
         m_line.positionCount=2;
         m_line.SetPosition(0, m_barrel.position);
         m_line.SetPosition(1, hito.point);
-        m_line.startWidth=0.01f;
-        m_line.endWidth = 0.025f;
+        m_line.startWidth=0.02f;
+        m_line.endWidth = 0.035f;
         m_line.useWorldSpace = true;
         m_line.material = m_gunMat;
     }
