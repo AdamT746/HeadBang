@@ -7,7 +7,7 @@ public class Shooting : MonoBehaviour
 {
     private LineRenderer m_line;
     public float m_destroyTime;
-    public Text m_comboText, m_scoreText;
+    public Text m_comboText, m_scoreText, m_scoreMultiplier;
     static public int m_score;
     public int m_combo;
 
@@ -46,7 +46,6 @@ public class Shooting : MonoBehaviour
                         Color targetMaterial = hit.collider.GetComponent<Renderer>().material.color;
 
                         ScoreAndCombo(targetMaterial);
-                        m_scoreText.text = "" + m_score;
 
                         Destroy(hit.collider.gameObject);
                     }
@@ -93,11 +92,39 @@ public class Shooting : MonoBehaviour
     private void ScoreAndCombo(Color target)
     {
         m_combo++;
+        if (target == Color.red)
+            m_combo = 0;
         m_comboText.text = "" + m_combo;
 
-        if (target == Color.yellow)
-            m_score += 1;
-        else if (target == Color.green)
-            m_score += 3;
+
+            if (m_combo < 10)
+        {
+            m_scoreMultiplier.text = null;
+
+            if (target == Color.yellow)
+                m_score += 1;
+            else if (target == Color.green)
+                m_score += 3;
+        }
+        else if (m_combo >= 20)
+        {
+            m_scoreMultiplier.text = "x3";
+
+            if (target == Color.yellow)
+                m_score += 3;
+            else if (target == Color.green)
+                m_score += 9;
+        }
+        else if (m_combo >= 10)
+        {
+            m_scoreMultiplier.text = "x2";
+
+            if (target == Color.yellow)
+                m_score += 2;
+            else if (target == Color.green)
+                m_score += 6;
+        }
+
+        m_scoreText.text = "" + m_score;
     }
 }
