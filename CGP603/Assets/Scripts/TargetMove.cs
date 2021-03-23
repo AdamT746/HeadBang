@@ -25,7 +25,8 @@ public class TargetMove : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Target.GetComponent<Rigidbody>().AddForce(transform.forward * Speed);
+        //Target.GetComponent<Rigidbody>().AddForce(transform.forward * Speed);
+        Target.transform.Translate(Vector3.forward * -Speed * Time.deltaTime);
 
         float dist = Mathf.Abs(Target.transform.position.z - Player.transform.position.z);
 
