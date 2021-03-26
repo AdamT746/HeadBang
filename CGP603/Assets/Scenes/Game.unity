@@ -584,7 +584,7 @@ MonoBehaviour:
     type: 3}
   m_PrefabInstance: {fileID: 1995755504}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 1703159247}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 005b2b1f4a02c164592b01409c9b9764, type: 3}
@@ -3868,6 +3868,12 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1694918525}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1703159247 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3493532686998739001, guid: be5e761e0d137ec47b9183882b9d6e70,
+    type: 3}
+  m_PrefabInstance: {fileID: 1995755504}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1725878227
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5355,6 +5361,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: GunPivot
       objectReference: {fileID: 0}
+    - target: {fileID: 3493532686998739003, guid: be5e761e0d137ec47b9183882b9d6e70,
+        type: 3}
+      propertyPath: GunBone
+      value: 
+      objectReference: {fileID: 1703159247}
     - target: {fileID: 3493532687588158973, guid: be5e761e0d137ec47b9183882b9d6e70,
         type: 3}
       propertyPath: m_comboText
