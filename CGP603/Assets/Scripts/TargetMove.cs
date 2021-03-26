@@ -13,11 +13,17 @@ public class TargetMove : MonoBehaviour
     public float Speed;
     bool perfectHit;
 
+    public int Health;
+    public int Damage;
+
     // Start is called before the first frame update
     void Start()
     {
         YellowRange = 4;
         GreenRange = 1;
+
+        Health = 100;
+        Damage = 20;
 
         Target.GetComponent<Renderer>().material.color = Color.red;
     }
@@ -31,6 +37,10 @@ public class TargetMove : MonoBehaviour
         float dist = Mathf.Abs(Target.transform.position.z - Player.transform.position.z);
 
         //Debug.Log("Distance = " + dist);
+        if (Health <= 0)
+        {
+            Debug.Log("Dead");
+        }
 
         if (dist <= YellowRange && dist > GreenRange)
         {
@@ -61,6 +71,9 @@ public class TargetMove : MonoBehaviour
     {
         if(collision.gameObject.tag == "Wall")
         {
+            Health = Health -= Damage;
+            Debug.Log(Health);
+
             Destroy(Target);
         }
     }
