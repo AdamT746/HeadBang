@@ -42,7 +42,7 @@ public class Shooting : MonoBehaviour
                 if(hit.collider.gameObject.name != "Pause Collider")
                 {
                     //Add score and combo, destroy target  --//Assuming yellow is perfect and green is great//--
-                    if (hit.collider.gameObject.tag == "Target")
+                    if (hit.collider.gameObject.name == "Target(Clone)")
                     {
                         Color targetMaterial = hit.collider.GetComponent<Renderer>().material.color;
 

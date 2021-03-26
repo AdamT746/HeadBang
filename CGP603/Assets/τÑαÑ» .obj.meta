@@ -1,44 +1,9 @@
 fileFormatVersion: 2
-guid: 08bd7f709bddaf84bbfbf9dc5d3d72fc
+guid: 56f3a13594b54f2448f28d1f1523e64a
 ModelImporter:
   serializedVersion: 19301
   internalIDToNameTable: []
-  externalObjects:
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Cube.001_Cube.001_Material.005Mat
-    second: {fileID: 2100000, guid: 40f1e1bd05338e241bb15361588e85e8, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Cube.002_Cube.002_Material.004Mat
-    second: {fileID: 2100000, guid: 40f1e1bd05338e241bb15361588e85e8, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Cube.009_Cube.012_Material.006Mat
-    second: {fileID: 2100000, guid: 40f1e1bd05338e241bb15361588e85e8, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Cube.015_Cube.018_Material.007Mat
-    second: {fileID: 2100000, guid: 40f1e1bd05338e241bb15361588e85e8, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Cube.016_Cube.019_Material.003Mat
-    second: {fileID: 2100000, guid: 40f1e1bd05338e241bb15361588e85e8, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Cube_Cube_Material.002Mat
-    second: {fileID: 2100000, guid: 40f1e1bd05338e241bb15361588e85e8, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Plane_Plane_Material.001Mat
-    second: {fileID: 2100000, guid: 40f1e1bd05338e241bb15361588e85e8, type: 2}
+  externalObjects: {}
   materials:
     materialImportMode: 1
     materialName: 0
@@ -66,7 +31,7 @@ ModelImporter:
     extraExposedTransformPaths: []
     extraUserProperties: []
     clipAnimations: []
-    isReadable: 1
+    isReadable: 0
   meshes:
     lODScreenPercentages: []
     globalScale: 1
