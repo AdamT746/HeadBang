@@ -5,7 +5,7 @@ using UnityEngine.VFX;
 
 public class TargetMove : MonoBehaviour
 {
-    public GameObject Target;
+    public GameObject Target; //list for multiple skull bits with getcomponentsinchildren?
     public GameObject Player;
     public GameObject notesVFX;
     private int YellowRange;
@@ -29,7 +29,10 @@ public class TargetMove : MonoBehaviour
 
         CurHealth = Health;
 
+        gameObject.transform.Rotate(0,90,0);
+        Target = this.gameObject;
         Target.GetComponent<Renderer>().material.color = Color.red;
+        //gameObject.GetComponentsInChildren<Renderer>();
     }
 
     // Update is called once per frame
@@ -40,7 +43,7 @@ public class TargetMove : MonoBehaviour
         //Debug.Log(CurHealth);
 
         //Target.GetComponent<Rigidbody>().AddForce(transform.forward * Speed);
-        Target.transform.Translate(Vector3.forward * -Speed * Time.deltaTime);
+        Target.transform.Translate(Vector3.right * Speed * Time.deltaTime);
 
         float dist = Mathf.Abs(Target.transform.position.z - Player.transform.position.z);
 
