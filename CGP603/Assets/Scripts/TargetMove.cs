@@ -25,7 +25,6 @@ public class TargetMove : MonoBehaviour
         Health = 100;
         Damage = 20;
 
-        gameObject.transform.Rotate(0,90,0);
         Target = this.gameObject;
         Target.GetComponent<Renderer>().material.color = Color.red;
         //gameObject.GetComponentsInChildren<Renderer>();
@@ -35,7 +34,7 @@ public class TargetMove : MonoBehaviour
     void Update()
     {
         //Target.GetComponent<Rigidbody>().AddForce(transform.forward * Speed);
-        Target.transform.Translate(Vector3.right * Speed * Time.deltaTime);
+        Target.transform.Translate(Vector3.back * Speed * Time.deltaTime);
 
         float dist = Mathf.Abs(Target.transform.position.z - Player.transform.position.z);
 
