@@ -15,6 +15,7 @@ public class TargetMove : MonoBehaviour
 
     public int Health;
     public int Damage;
+    public int CurHealth;
 
     // Start is called before the first frame update
     void Start()
@@ -22,8 +23,11 @@ public class TargetMove : MonoBehaviour
         YellowRange = 4;
         GreenRange = 1;
 
-        Health = 100;
+        
         Damage = 20;
+        Health = 100;
+
+        CurHealth = Health;
 
         Target = this.gameObject;
         Target.GetComponent<Renderer>().material.color = Color.red;
@@ -33,13 +37,17 @@ public class TargetMove : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        CurHealth = Health;
+
+        //Debug.Log(CurHealth);
+
         //Target.GetComponent<Rigidbody>().AddForce(transform.forward * Speed);
         Target.transform.Translate(Vector3.back * Speed * Time.deltaTime);
 
         float dist = Mathf.Abs(Target.transform.position.z - Player.transform.position.z);
 
         //Debug.Log("Distance = " + dist);
-        if (Health <= 0)
+        if (CurHealth <= 0)
         {
             Debug.Log("Dead");
         }
@@ -60,6 +68,14 @@ public class TargetMove : MonoBehaviour
             perfectHit = false;
         }
     }
+
+    void TakeDamage(int damage)
+    {
+        CurHealth = CurHealth - damage;
+        
+    }
+
+
     void OnDestroy()
     {
         if (perfectHit)
@@ -73,8 +89,8 @@ public class TargetMove : MonoBehaviour
     {
         if(collision.gameObject.tag == "Wall")
         {
-            Health = Health -= Damage;
-            Debug.Log(Health);
+            TakeDamage(20);
+            Debug.Log(CurHealth);
 
             Destroy(Target);
         }
