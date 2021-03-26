@@ -7,8 +7,8 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Shader Graphs_SkyBoxShader
-  m_Shader: {fileID: -6465566751694194690, guid: 61a860d38b5bd63479285b0ccf380448,
+  m_Name: Shader Graphs_testingdansshader
+  m_Shader: {fileID: -6465566751694194690, guid: 857754546468fb643aa063542055d188,
     type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
@@ -21,10 +21,5 @@ Material:
     serializedVersion: 3
     m_TexEnvs: []
     m_Floats:
-    - Vector1_98410C11: 2
-    - Vector1_F12646ED: 0
-    m_Colors:
-    - Color_27D82D79: {r: 0.03137255, g: 0.0070658163, b: 0, a: 0}
-    - Color_5BB736E8: {r: 0, g: 0, b: 0, a: 0}
-    - Color_A0FB372B: {r: 256, g: 256, b: 256, a: 1}
-    - Vector2_5AD22281: {r: 1, g: 1, b: 0, a: 0}
+    - Vector1_FC4669CD: 0
+    m_Colors: []
