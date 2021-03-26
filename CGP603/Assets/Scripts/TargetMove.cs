@@ -5,7 +5,7 @@ using UnityEngine.VFX;
 
 public class TargetMove : MonoBehaviour
 {
-    public GameObject Target;
+    public GameObject Target; //list for multiple skull bits with getcomponentsinchildren?
     public GameObject Player;
     public GameObject notesVFX;
     private int YellowRange;
@@ -19,7 +19,9 @@ public class TargetMove : MonoBehaviour
         YellowRange = 4;
         GreenRange = 1;
 
+        Target = this.gameObject;
         Target.GetComponent<Renderer>().material.color = Color.red;
+        //gameObject.GetComponentsInChildren<Renderer>();
     }
 
     // Update is called once per frame
@@ -35,7 +37,7 @@ public class TargetMove : MonoBehaviour
         if (dist <= YellowRange && dist > GreenRange)
         {
             Target.GetComponent<Renderer>().material.color = Color.yellow;
-             perfectHit = false;
+            perfectHit = false;
         }
         else if (dist <= GreenRange)
         {
