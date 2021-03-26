@@ -5,7 +5,7 @@ using UnityEngine.VFX;
 
 public class TargetMove : MonoBehaviour
 {
-    public GameObject Target; //list for multiple skull bits with getcomponentsinchildren?
+    public GameObject Target; //list for multiple skull model parts with getcomponentsinchildren?
     public GameObject Player;
     public GameObject notesVFX;
     private int YellowRange;
@@ -29,7 +29,7 @@ public class TargetMove : MonoBehaviour
 
         CurHealth = Health;
 
-        Target = this.gameObject;
+        Target = gameObject;
         Target.GetComponent<Renderer>().material.color = Color.red;
         //gameObject.GetComponentsInChildren<Renderer>();
     }
@@ -81,7 +81,7 @@ public class TargetMove : MonoBehaviour
         if (perfectHit)
         {
             Instantiate(notesVFX, transform.position, Quaternion.identity);
-            Debug.LogWarning("<color=red>BOOM!!!!!!!!!!!!!!! </color>");
+            //Debug.LogWarning("<color=red>BOOM!!!!!!!!!!!!!!! </color>");
         }
     }
 
