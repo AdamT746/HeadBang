@@ -5,22 +5,21 @@ using UnityEngine.UI;
 
 public class Highscores : MonoBehaviour
 {
-    
-    public int highScore;
-    public int highCombo;
+    public Text HScoreText;
     public Text ScoreText;
     public Text ComboText;
 
     // Start is called before the first frame update
     void Start()
     {
-        highCombo = 0;
+        HScoreText.text = "HighScore " + Shooting.HScore;
+        ScoreText.text = "Score " + Shooting.m_score;
+        ComboText.text = "Highest Combo " + Shooting.HCombo;
     }
 
     // Update is called once per frame
     void Update()
     {
-        ScoreText.text = "Score " + Shooting.m_score;
-        ComboText.text = "Combo " + Shooting.HCombo;
+        
     }
 }

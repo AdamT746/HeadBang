@@ -11,7 +11,7 @@ public class Shooting : MonoBehaviour
     static public int m_score;
     public int m_combo;
 
-    static public int HCombo;
+    static public int HScore, HCombo;
 
     public bool using_anim;
     
@@ -26,7 +26,10 @@ public class Shooting : MonoBehaviour
         m_line = GetComponent<LineRenderer>();
 
         m_score = 0;
-        HCombo = 0;
+        m_combo = 0;
+
+        HScore = PlayerPrefs.GetInt("Player HighScore");
+        HCombo = PlayerPrefs.GetInt("Player HighCombo");
     }
 
     // Update is called once per frame
@@ -63,11 +66,7 @@ public class Shooting : MonoBehaviour
                 }
             }
         }
-        if (m_combo > HCombo)
-        {
-            HCombo = m_combo;
-        }
-
+        HighScoreAndHighCombo();
     }
 
     void SetupLine(RaycastHit hito)
@@ -100,7 +99,7 @@ public class Shooting : MonoBehaviour
         m_comboText.text = "" + m_combo;
 
 
-            if (m_combo < 10)
+        if (m_combo < 10)
         {
             m_scoreMultiplier.text = null;
 
@@ -129,5 +128,19 @@ public class Shooting : MonoBehaviour
         }
 
         m_scoreText.text = "" + m_score;
+    }
+
+    private void HighScoreAndHighCombo()
+    {
+        if (m_score > HScore)
+        {
+            HScore = m_score;
+            PlayerPrefs.SetInt("Player HighScore", HScore);
+        }
+        if (m_combo > HCombo)
+        {
+            HCombo = m_combo;
+            PlayerPrefs.SetInt("Player HighCombo", HCombo);
+        }
     }
 }
