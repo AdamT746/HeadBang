@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
+
 
 public class Conductor : MonoBehaviour
 {
@@ -29,6 +31,7 @@ public class Conductor : MonoBehaviour
     private float timer;
 
     public float SongLength;
+    public Text Timeleft;
     
 
     void Start()
@@ -67,5 +70,6 @@ public class Conductor : MonoBehaviour
         {
             SceneManager.LoadScene("LevelEnd");
         }
+        Timeleft.text = songPosition + "/" + SongLength;
     }
 }

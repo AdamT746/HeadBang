@@ -28,7 +28,7 @@ public class PlayerHealth : MonoBehaviour
             SceneManager.LoadScene("LevelEnd");
         }
 
-        HealthText.text = "Health " + CurHealth;
+        HealthText.text = "Health: " + CurHealth;
     }
 
     void TakeDamage(int damage)
