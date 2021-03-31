@@ -22,7 +22,7 @@ public class BlockSpawn : MonoBehaviour
         timer -= Time.deltaTime;
         if(timer < 0) //Input.GetKeyDown("f"))
         {
-            Instantiate(Target, Position.transform.position, Quaternion.identity);
+            Instantiate(Target, Position.transform.position, transform.rotation);
             timer = Random.Range(3f,7f);
             print(timer);
         }
