@@ -29,7 +29,6 @@ public class Shooting : MonoBehaviour
         m_combo = 0;
 
         HScore = PlayerPrefs.GetInt("Player HighScore");
-        HCombo = PlayerPrefs.GetInt("Player HighCombo");
     }
 
     // Update is called once per frame
@@ -47,9 +46,9 @@ public class Shooting : MonoBehaviour
                     //Add score and combo, destroy target  --//Assuming yellow is perfect and green is great//--
                     if (hit.collider.gameObject.tag == "Target")
                     {
-                        Color targetMaterial = hit.collider.GetComponent<Renderer>().material.color;
+                        Material targetMaterial = hit.collider.GetComponent<Renderer>().material;
 
-                        ScoreAndCombo(targetMaterial);
+                        ScoreAndCombo(targetMaterial.color);
 
                         Destroy(hit.collider.gameObject);
                     }
@@ -66,7 +65,7 @@ public class Shooting : MonoBehaviour
                 }
             }
         }
-        HighScoreAndHighCombo();
+        HighScore();
     }
 
     void SetupLine(RaycastHit hito)
@@ -130,7 +129,7 @@ public class Shooting : MonoBehaviour
         m_scoreText.text = "" + m_score;
     }
 
-    private void HighScoreAndHighCombo()
+    private void HighScore()
     {
         if (m_score > HScore)
         {
@@ -140,7 +139,6 @@ public class Shooting : MonoBehaviour
         if (m_combo > HCombo)
         {
             HCombo = m_combo;
-            PlayerPrefs.SetInt("Player HighCombo", HCombo);
         }
     }
 }
