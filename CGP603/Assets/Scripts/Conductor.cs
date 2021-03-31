@@ -63,7 +63,7 @@ public class Conductor : MonoBehaviour
             {
                 Instantiate(targetPrefab, spawnPoints[Random.Range(0, spawnPoints.Count)].transform.position, Quaternion.identity);
                 timer += gap;
-                Debug.Log(songPosInBeats);
+                //Debug.Log(songPosInBeats);
             }
         }
         if (songPosition >= SongLength)
