@@ -57,14 +57,34 @@ public class Conductor : MonoBehaviour
             //Song tracking
             songPosition = (float)(musicSource.time - songTime - firstBeatOffset); //songPosition = (float)(AudioSettings.dspTime - songTime - firstBeatOffset);//seconds since song start
             songPosInBeats = songPosition / secPerBeat;//beats since song start
-
+            
             //Target spawning
             if (timer < songPosInBeats)
             {
                 Instantiate(targetPrefab, spawnPoints[Random.Range(0, spawnPoints.Count)].transform.position, Quaternion.identity);
-                timer += gap;
+                //timer += gap;
+
+                if (songPosition > 75)
+                {
+                    timer += gap / 2;
+                }
+                else if (songPosition > 62)
+                {
+                    timer += gap;
+                }
+                else if (songPosition > 50)
+                {
+                    timer += gap / 2;
+                }
+                else
+                {
+                    timer += gap;
+                }
                 //Debug.Log(songPosInBeats);
             }
+
+            
+
         }
         if (songPosition >= SongLength)
         {

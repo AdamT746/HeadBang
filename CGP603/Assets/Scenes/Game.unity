@@ -6809,7 +6809,7 @@ MonoBehaviour:
   targetPrefab: {fileID: 6627465654351165477, guid: 7c04bbf1d806c9748814c023fef6cdc9,
     type: 3}
   gap: 4
-  SongLength: 60
+  SongLength: 120
   Timeleft: {fileID: 1954294337}
 --- !u!1001 &1680329885
 PrefabInstance:
