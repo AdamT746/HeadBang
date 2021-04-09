@@ -17,6 +17,9 @@ public class TargetMove : MonoBehaviour
     public int Damage;
     public int CurHealth;
 
+    public AudioSource sound;
+    public AudioClip[] destroy;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -32,6 +35,8 @@ public class TargetMove : MonoBehaviour
         Target = gameObject;
         Target.GetComponent<Renderer>().material.color = Color.red;
         //gameObject.GetComponentsInChildren<Renderer>();
+
+        sound = gameObject.GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -83,6 +88,9 @@ public class TargetMove : MonoBehaviour
 
     void OnDestroy()
     {
+        sound.clip = destroy[Random.Range(0, destroy.Length)];
+        sound.Play();
+        
         if (perfectHit)
         {
             Instantiate(notesVFX[0], transform.position, Quaternion.identity);
