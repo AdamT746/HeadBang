@@ -67,7 +67,7 @@ public class TargetMove : MonoBehaviour
         //     Target.GetComponent<Renderer>().material.color = Color.red;
         //     perfectHit = false;
         // }
-        if (this.gameObject.transform.position.z >= -10 && Target.transform.position.z <= -8)
+        if (this.gameObject.transform.position.z >= -10 && Target.transform.position.z <= -7)
             perfectHit = true;
         else
             perfectHit = false;

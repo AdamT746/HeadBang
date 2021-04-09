@@ -47,8 +47,10 @@ public class Shooting : MonoBehaviour
                     if (hit.collider.gameObject.tag == "Target")
                     {
                         Material targetMaterial = hit.collider.GetComponent<Renderer>().material;
+                        float posZ = hit.collider.transform.position.z;
 
-                        ScoreAndCombo(targetMaterial.color);
+                        //ScoreAndCombo(targetMaterial.color);
+                        ScoreAndCombo(posZ);
 
                         Destroy(hit.collider.gameObject);
                     }
@@ -90,10 +92,48 @@ public class Shooting : MonoBehaviour
         m_line.enabled = !m_line.enabled;
     }
 
-    private void ScoreAndCombo(Color target)
+    // private void ScoreAndCombo(Color target)
+    // {
+    //     m_combo++;
+    //     if (target == Color.red)
+    //         m_combo = 0;
+    //     m_comboText.text = "" + m_combo;
+
+
+    //     if (m_combo < 10)
+    //     {
+    //         m_scoreMultiplier.text = null;
+
+    //         if (target == Color.yellow)
+    //             m_score += 1;
+    //         else if (target == Color.green)
+    //             m_score += 3;
+    //     }
+    //     else if (m_combo >= 20)
+    //     {
+    //         m_scoreMultiplier.text = "x3";
+
+    //         if (target == Color.yellow)
+    //             m_score += 3;
+    //         else if (target == Color.green)
+    //             m_score += 9;
+    //     }
+    //     else if (m_combo >= 10)
+    //     {
+    //         m_scoreMultiplier.text = "x2";
+
+    //         if (target == Color.yellow)
+    //             m_score += 2;
+    //         else if (target == Color.green)
+    //             m_score += 6;
+    //     }
+
+    //     m_scoreText.text = "" + m_score;
+    // }
+    private void ScoreAndCombo(float posZ)
     {
         m_combo++;
-        if (target == Color.red)
+        if (posZ >= -2.5f)
             m_combo = 0;
         m_comboText.text = "" + m_combo;
 
@@ -102,27 +142,27 @@ public class Shooting : MonoBehaviour
         {
             m_scoreMultiplier.text = null;
 
-            if (target == Color.yellow)
+            if (posZ <= -2.5f && posZ >=-7)
                 m_score += 1;
-            else if (target == Color.green)
+            else if (posZ <= -7 && posZ >= -10)
                 m_score += 3;
         }
         else if (m_combo >= 20)
         {
             m_scoreMultiplier.text = "x3";
 
-            if (target == Color.yellow)
+            if (posZ <= -2.5f && posZ >=-7)
                 m_score += 3;
-            else if (target == Color.green)
+            else if (posZ <= -7 && posZ >= -10)
                 m_score += 9;
         }
         else if (m_combo >= 10)
         {
             m_scoreMultiplier.text = "x2";
 
-            if (target == Color.yellow)
+            if (posZ <= -2.5f && posZ >=-7)
                 m_score += 2;
-            else if (target == Color.green)
+            else if (posZ <= -7 && posZ >= -10)
                 m_score += 6;
         }
 
