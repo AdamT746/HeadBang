@@ -82,8 +82,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Target: {fileID: 6627465654351165477}
   Player: {fileID: 963170936646518092, guid: 4da818390eb383d41ae1b1107965699f, type: 3}
-  notesVFX: {fileID: 7366416074339670565, guid: d84c5096fede94e459e43861f4cda9b6,
-    type: 3}
+  notesVFX:
+  - {fileID: 7366416074339670565, guid: ebc26974a79c56344a9ecdda432e7d46, type: 3}
+  - {fileID: 7366416074339670565, guid: d84c5096fede94e459e43861f4cda9b6, type: 3}
   Speed: 8
   Health: 0
   Damage: 0

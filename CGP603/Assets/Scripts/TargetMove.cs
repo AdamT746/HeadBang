@@ -7,11 +7,11 @@ public class TargetMove : MonoBehaviour
 {
     public GameObject Target; //list for multiple skull model parts with getcomponentsinchildren?
     public GameObject Player;
-    public GameObject notesVFX;
+    public GameObject[] notesVFX;
     private int YellowRange;
     private int GreenRange;
     public float Speed;
-    bool perfectHit;
+    bool ShowParicles,perfectHit;
 
     public int Health;
     public int Damage;
@@ -52,21 +52,26 @@ public class TargetMove : MonoBehaviour
             Debug.Log("Dead");
         }
 
-        if (dist <= YellowRange && dist > GreenRange)
-        {
-            Target.GetComponent<Renderer>().material.color = Color.yellow;
-            perfectHit = false;
-        }
-        else if (dist <= GreenRange)
-        {
-            Target.GetComponent<Renderer>().material.color = Color.green;
+        // if (dist <= YellowRange && dist > GreenRange)
+        // {
+        //     Target.GetComponent<Renderer>().material.color = Color.yellow;
+        //     perfectHit = false;
+        // }
+        // else if (dist <= GreenRange)
+        // {
+        //     Target.GetComponent<Renderer>().material.color = Color.green;
+        //     perfectHit = true;
+        // }
+        // else if (dist >= YellowRange)
+        // {
+        //     Target.GetComponent<Renderer>().material.color = Color.red;
+        //     perfectHit = false;
+        // }
+        if (this.gameObject.transform.position.z >= -10 && Target.transform.position.z <= -8)
             perfectHit = true;
-        }
-        else if (dist >= YellowRange)
-        {
-            Target.GetComponent<Renderer>().material.color = Color.red;
+        else
             perfectHit = false;
-        }
+        
     }
 
     void TakeDamage(int damage)
@@ -80,9 +85,17 @@ public class TargetMove : MonoBehaviour
     {
         if (perfectHit)
         {
-            Instantiate(notesVFX, transform.position, Quaternion.identity);
+            Instantiate(notesVFX[0], transform.position, Quaternion.identity);
             //Debug.LogWarning("<color=red>BOOM!!!!!!!!!!!!!!! </color>");
         }
+        else
+            Instantiate(notesVFX[1], transform.position, Quaternion.identity); 
+    }
+    IEnumerator PerfectHit()
+    {
+        perfectHit = true;
+        yield return new WaitForSeconds(0.5f);
+        perfectHit = false;
     }
 
     private void OnTriggerEnter(Collider collision)
