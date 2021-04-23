@@ -90,6 +90,6 @@ public class Conductor : MonoBehaviour
         {
             SceneManager.LoadScene("LevelEnd");
         }
-        Timeleft.text = songPosition + "/" + SongLength;
+        Timeleft.text = "Warp Progress " + songPosition.ToString("F1") + "/" + SongLength;
     }
 }
