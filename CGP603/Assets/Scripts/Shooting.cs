@@ -8,10 +8,12 @@ public class Shooting : MonoBehaviour
     private LineRenderer m_line;
     public float m_destroyTime;
     public Text m_comboText, m_scoreText, m_scoreMultiplier;
-    public AudioClip[] m_skullHitSound;
-    private AudioSource m_audioSource;
-    static public int m_score, m_combo;
 
+    public AudioClip[] m_skullHitSound;
+    public AudioSource m_skullHitSource;
+    public AudioSource m_laserSource;
+    
+    static public int m_score, m_combo;
     static public int HScore;
 
     public bool using_anim;
@@ -25,7 +27,7 @@ public class Shooting : MonoBehaviour
     void Start()
     {
         m_line = GetComponent<LineRenderer>();
-        m_audioSource = GetComponent<AudioSource>();
+        //m_audioSource = GetComponent<AudioSource>();
 
         m_score = 0;
         m_combo = 0;
@@ -45,14 +47,16 @@ public class Shooting : MonoBehaviour
             {
                 if(hit.collider.gameObject.name != "Pause Collider")
                 {
+                    m_laserSource.Play();
                     //Add score and combo, destroy target  --//Assuming yellow is perfect and green is great//--
                     if (hit.collider.gameObject.tag == "Target")
                     {
                         Material targetMaterial = hit.collider.GetComponent<Renderer>().material;
                         float posZ = hit.collider.transform.position.z;
 
-                        m_audioSource.clip = m_skullHitSound[Random.Range(0, m_skullHitSound.Length)];
-                        m_audioSource.Play();
+                        m_skullHitSource.clip = m_skullHitSound[Random.Range(0, m_skullHitSound.Length)];
+                        m_skullHitSource.Play();
+                        Debug.Log(m_skullHitSource.clip);
 
                         //ScoreAndCombo(targetMaterial.color);
                         ScoreAndCombo(posZ);

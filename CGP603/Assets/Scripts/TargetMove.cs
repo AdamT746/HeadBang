@@ -8,8 +8,8 @@ public class TargetMove : MonoBehaviour
     public GameObject Target; //list for multiple skull model parts with getcomponentsinchildren?
     public GameObject Player;
     public GameObject[] notesVFX;
-    private int YellowRange;
-    private int GreenRange;
+    //private int YellowRange;
+    //private int GreenRange;
     public float Speed;
     bool ShowParicles,perfectHit;
 
@@ -23,8 +23,8 @@ public class TargetMove : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        YellowRange = 4;
-        GreenRange = 1;
+        //YellowRange = 4;
+        //GreenRange = 1;
 
         
         Damage = 20;
@@ -88,8 +88,8 @@ public class TargetMove : MonoBehaviour
 
     void OnDestroy()
     {
-        sound.clip = destroy[Random.Range(0, destroy.Length)];
-        sound.Play();
+        //sound.clip = destroy[Random.Range(0, destroy.Length)];
+        //sound.Play();
         
         if (perfectHit)
         {
