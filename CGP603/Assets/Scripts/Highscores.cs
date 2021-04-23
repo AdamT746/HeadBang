@@ -14,7 +14,7 @@ public class Highscores : MonoBehaviour
     {
         HScoreText.text = "HighScore " + Shooting.HScore;
         ScoreText.text = "Score " + Shooting.m_score;
-        ComboText.text = "Highest Combo " + Shooting.HCombo;
+        ComboText.text = "Combo " + Shooting.m_combo;
     }
 
     // Update is called once per frame
