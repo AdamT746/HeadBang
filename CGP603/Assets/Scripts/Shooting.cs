@@ -8,10 +8,11 @@ public class Shooting : MonoBehaviour
     private LineRenderer m_line;
     public float m_destroyTime;
     public Text m_comboText, m_scoreText, m_scoreMultiplier;
-    static public int m_score;
-    public int m_combo;
+    public AudioClip[] m_skullHitSound;
+    private AudioSource m_audioSource;
+    static public int m_score, m_combo;
 
-    static public int HScore, HCombo;
+    static public int HScore;
 
     public bool using_anim;
     
@@ -24,6 +25,7 @@ public class Shooting : MonoBehaviour
     void Start()
     {
         m_line = GetComponent<LineRenderer>();
+        m_audioSource = GetComponent<AudioSource>();
 
         m_score = 0;
         m_combo = 0;
@@ -48,6 +50,9 @@ public class Shooting : MonoBehaviour
                     {
                         Material targetMaterial = hit.collider.GetComponent<Renderer>().material;
                         float posZ = hit.collider.transform.position.z;
+
+                        m_audioSource.clip = m_skullHitSound[Random.Range(0, m_skullHitSound.Length)];
+                        m_audioSource.Play();
 
                         //ScoreAndCombo(targetMaterial.color);
                         ScoreAndCombo(posZ);
@@ -175,10 +180,6 @@ public class Shooting : MonoBehaviour
         {
             HScore = m_score;
             PlayerPrefs.SetInt("Player HighScore", HScore);
-        }
-        if (m_combo > HCombo)
-        {
-            HCombo = m_combo;
         }
     }
 }
