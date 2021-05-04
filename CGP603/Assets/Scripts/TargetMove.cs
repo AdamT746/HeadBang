@@ -86,7 +86,7 @@ public class TargetMove : MonoBehaviour
     }
 
 
-    void OnDestroy()
+    void OnDisable()
     {
         //sound.clip = destroy[Random.Range(0, destroy.Length)];
         //sound.Play();

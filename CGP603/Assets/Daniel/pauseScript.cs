@@ -29,15 +29,25 @@ public class pauseScript : MonoBehaviour
         shootingScript.enabled = false;
         lazer.enabled = false;
     }
-    public void Resume()
+    public void ResumeLevel()
     {
         animator.SetTrigger("Toggle");
-        StartCoroutine(StartResume());
         PauseMenu.SetActive(false);
+        StartCoroutine(ResumeCountdown(false));
     }
-    IEnumerator StartResume()
-    {    
-        float pauseTime = Time.realtimeSinceStartup + 3f;
+    public void ResumeTime()
+    {
+        animator.SetTrigger("Toggle");
+        PauseMenu.SetActive(false);
+        StartCoroutine(ResumeCountdown(true));
+    }
+    IEnumerator ResumeCountdown(bool sceneChange) //true if changing scene to menu to skip countdwon
+    {
+        float pauseTime = 0;
+        if (sceneChange == false)
+        {
+            pauseTime = Time.realtimeSinceStartup + 3f;
+        }
         while (Time.realtimeSinceStartup < pauseTime)
         {
             for (int i = 3; i > 0; i--)//cooldown Timer
